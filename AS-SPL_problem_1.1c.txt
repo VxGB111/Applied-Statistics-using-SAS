@@ -1,0 +1,34 @@
+/****************************************
+S. Barclay
+Applied Statistics & the SAS Programming
+Language 5th Ed. Cody & Smith. 2006.
+Problem 1.1 c
+
+Given data from 5 subjects, compute an
+INDEX where [INDEX = GPA + 3* CSCORE/500.
+Modify program to print out ID, GPA,
+CSCORE, and INDEX in order of descending
+INDEX.
+****************************************/
+
+DATA TEST;
+	INPUT _ID 1-2 AGE 4-5 GENDER $ 7 GPA 9-11
+		CSCORE 13-15;
+INDEX = GPA + 3 * CSCORE/500;
+DATALINES;
+1  18 M 3.7 650
+2  18 F 2.0 490
+3  19 F 3.3 580
+4  23 M 2.8 530
+5  21 M 3.5 640
+;
+proc sort data=TEST OUT=TEST_sorted;
+   by descending INDEX;
+run;
+
+PROC PRINT DATA=TEST_sorted;
+	TITLE "PROBLEM 1.1C";
+	ID _ID;	
+	VAR _ID GPA CSCORE INDEX;
+	
+RUN;

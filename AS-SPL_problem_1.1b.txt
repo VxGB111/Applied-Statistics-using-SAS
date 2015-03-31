@@ -1,0 +1,23 @@
+/****************************************
+S. Barclay
+Applied Statistics & the SAS Programming
+Language 5th Ed. Cody & Smith. 2006.
+Problem 1.1 b
+
+Given data from 5 subjects, calculate 
+mean GPA and CSCORE
+****************************************/
+
+DATA TEST;
+	INPUT ID 1-2 AGE 4-5 GENDER $ 7 GPA 9-11
+		CSCORE 13-15;
+DATALINES;
+1  18 M 3.7 650
+2  18 F 2.0 490
+3  19 F 3.3 580
+4  23 M 2.8 530
+5  21 M 3.5 640
+;
+PROC MEANS DATA=TEST;
+	VAR GPA CSCORE;
+RUN;

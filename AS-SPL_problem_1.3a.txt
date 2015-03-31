@@ -1,0 +1,22 @@
+/****************************************
+S. Barclay
+Applied Statistics & the SAS Programming
+Language 5th Ed. Cody & Smith. 2006.
+Problem 1.3 a 
+
+Given data from 4 subjects, compute 
+average annual salary and average age.
+****************************************/
+
+DATA TEST;
+	INPUT SSN SALARY AGE RACE $;
+DATALINES;
+123874414 28000 35 W
+646239182 29500 37 B
+012437652 35100 40 W
+018451357 26500 31 W
+;
+
+PROC MEANS DATA=TEST;
+	VAR SALARY AGE;
+RUN;
